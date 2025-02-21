@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[Derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Author {
     id: u64,
     name: String,

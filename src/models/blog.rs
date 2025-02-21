@@ -1,7 +1,8 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
+use sqlx::FromRow;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct Blog {
     pub id: u64,
     pub title: String,
@@ -11,13 +12,13 @@ pub struct Blog {
     pub updated_at: DateTime<Utc>,
 }
 
-pub struct CreateBlog{
+pub struct CreateBlog {
     pub title: String,
     pub content: String,
     pub author_id: u64,
 }
 
-pub struct UpdateBlog{
+pub struct UpdateBlog {
     pub title: String,
     pub content: String,
 }
