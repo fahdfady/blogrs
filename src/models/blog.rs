@@ -4,10 +4,10 @@ use sqlx::FromRow;
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct Blog {
-    pub id: u64,
+    pub id: i64,
     pub title: String,
     pub content: String,
-    pub author_id: u64,
+    pub author_id: i64,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
 }
@@ -15,7 +15,7 @@ pub struct Blog {
 pub struct CreateBlog {
     pub title: String,
     pub content: String,
-    pub author_id: u64,
+    pub author_id: i64,
 }
 
 pub struct UpdateBlog {

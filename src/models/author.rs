@@ -1,8 +1,9 @@
 use serde::{Deserialize, Serialize};
+use sqlx::prelude::FromRow;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct Author {
-    id: u64,
+    id: i64,
     name: String,
     email: String,
 }
