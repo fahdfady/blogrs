@@ -15,5 +15,7 @@ pkgs.mkShell {
     libffi
     libffi.dev
     llvmPackages.libclang
+
+    curl
   ];
 }
