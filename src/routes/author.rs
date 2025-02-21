@@ -4,7 +4,7 @@ use axum::{
 };
 use sqlx::SqlitePool;
 
-use crate::controllers::author;
+use crate::handlers::author;
 
 pub fn router(pool: SqlitePool) -> Router {
     Router::new()
