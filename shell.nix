@@ -8,6 +8,8 @@ pkgs.mkShell {
     rustc
     rust-analyzer
 
+    pkg-config
+    sqlx-cli
     openssl
     openssl.dev
     libffi
