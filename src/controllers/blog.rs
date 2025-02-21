@@ -21,8 +21,8 @@ pub async fn get_blogs(State(pool): State<SqlitePool>) -> Result<Json<Vec<Blog>>
 }
 
 pub async fn get_blog_by_id(
-    Path(id): Path<i64>,
     State(pool): State<SqlitePool>,
+    Path(id): Path<i64>,
 ) -> Result<Json<Blog>> {
     let blog = query_as::<_, Blog>("SELECT * FROM blogs WHERE id = ?")
         .bind(id)
@@ -33,11 +33,11 @@ pub async fn get_blog_by_id(
 }
 
 pub async fn update_blog(
+    State(pool): State<SqlitePool>,
     Path(id): Path<i64>,
     Json(update): Json<UpdateBlog>,
-    State(pool): State<SqlitePool>,
 ) -> Result<Json<Blog>> {
-    let mut blog: Blog = get_blog_by_id(Path(id), State(pool.clone())).await?.0;
+    let mut blog: Blog = get_blog_by_id(State(pool.clone()), Path(id)).await?.0;
 
     if let title = update.title {
         blog.title = title
