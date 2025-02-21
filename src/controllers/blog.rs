@@ -2,7 +2,7 @@ use axum::{
     extract::{Path, State},
     Json,
 };
-use sqlx::{query, query_as, SqlitePool};
+use sqlx::{query_as, SqlitePool};
 
 use crate::{
     models::{

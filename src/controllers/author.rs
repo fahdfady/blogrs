@@ -4,10 +4,7 @@ use axum::{
 };
 use sqlx::{query_as, SqlitePool};
 
-use crate::{
-    models::author::{self, Author},
-    Result,
-};
+use crate::{models::author::Author, Result};
 
 pub async fn get_authors(State(pool): State<SqlitePool>) -> Result<Json<Vec<Author>>> {
     let authors = query_as("SELECT * FROM authors").fetch_all(&pool).await?;
