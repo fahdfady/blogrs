@@ -12,12 +12,14 @@ pub struct Blog {
     pub updated_at: DateTime<Utc>,
 }
 
+#[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct CreateBlog {
     pub title: String,
     pub content: String,
     pub author_id: i64,
 }
 
+#[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct UpdateBlog {
     pub title: String,
     pub content: String,

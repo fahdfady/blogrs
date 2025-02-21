@@ -32,6 +32,7 @@ pub async fn get_blog_by_id(
     Ok(Json(blog))
 }
 
+#[axum_macros::debug_handler]
 pub async fn update_blog(
     State(pool): State<SqlitePool>,
     Path(id): Path<i64>,
