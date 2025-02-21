@@ -1,15 +1,15 @@
-CREATE TABLE authors{
+CREATE TABLE authors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
-}
+    email TEXT NOT NULL UNIQUE
+);
 
-CREATE TABLE blogs{
+CREATE TABLE blogs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
     author_id INTEGER NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (author_id) REFERENCES authors(id)
-}
+    FOREIGN KEY(author_id) REFERENCES authors(id)
+);
