@@ -40,10 +40,10 @@ pub async fn update_blog(
 ) -> Result<Json<Blog>> {
     let mut blog: Blog = get_blog_by_id(State(pool.clone()), Path(id)).await?.0;
 
-    if let title = update.title {
+    if let Some(title) = update.title {
         blog.title = title
     }
-    if let content = update.content {
+    if let Some(content) = update.content {
         blog.content = content;
     }
 

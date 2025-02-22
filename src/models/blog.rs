@@ -21,6 +21,6 @@ pub struct CreateBlog {
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct UpdateBlog {
-    pub title: String,
-    pub content: String,
+    pub title: Option<String>,
+    pub content: Option<String>,
 }
